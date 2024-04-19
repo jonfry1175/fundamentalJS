@@ -4,3 +4,6 @@ config.
 git fetch = narik perubahan dari repo ke remote branch
 
 git merge = memasukkan perubahan ke lokal branch
+
+
+test
