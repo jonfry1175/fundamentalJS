@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>test</h1>
+    <script>
+      class User {
+        firstName = "";
+        lastName = "";
+        username = "";
+        age = 0;
+
+        // constructor
+        constructor(firstName, lastName, username, age) {
+          {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.username = username;
+            this.age = age;
+          }
+        }
+
+        // method
+        // private
+        #getFullName() {
+          return `${this.firstName} ${this.lastName}`;
+        }
+
+        greeting() {
+          return `Hello cuy, my name is ${this.#getFullName()} and I am ${
+            this.age
+          } years old`;
+        }
+      }
+
+      class Admin extends User {
+        division = "";
+
+
+        // super = constructor from User/Parent
+        constructor(firstName, lastName, username, age, division) {
+          super(firstName, lastName, username, age);
+          this.division = division;
+        }
+
+        greeting = function () {
+          return `hello, i'm admin`;
+        };
+
+        checkDivision = function () {
+            return `my division is ${this.division}`
+        }
+      }
+
+      const admin = new Admin("Agil", "Saputra", "AgilSaputra", 21, "IT");
+      const user = new User("Bagas", "Saputra", "BagasSaputra", 22);
+    //   console.log(admin);
+    //   console.log(user);
+    console.log(user.greeting())
+    console.log(admin.checkDivision())
+    console.log(admin.greeting())
+    </script>
+  </body>
+</html>
