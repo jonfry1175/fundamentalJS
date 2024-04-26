@@ -1,0 +1,32 @@
+h1 {
+    color: red;
+}
+
+/* pseudocode intinya disini, h1:hover */
+h1:hover {
+    color: aqua;
+}
+
+button {
+    background-color: orangered;
+    color: white;
+    border: 0;
+    padding: 4px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: rgb(84, 30, 10);
+}
+
+button:active {
+    background-color: rgb(84, 30, 10);
+    color: white;
+}
+
+button:disabled {
+    background-color: black;
+    cursor: not-allowed;
+}
