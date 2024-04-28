@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>My Todo</h1>
+
+    <h3><span id="todo-length"></span> items</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="todo-list">
+        <!-- <tr>
+          <td>test1</td>
+          <td>
+            <button>test1</button>
+          </td>
+        </tr>
+        <tr>
+          <td>test2</td>
+          <td>
+            <button>test2</button>
+          </td>
+        </tr> -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <input id="todo-input" type="text" placeholder="add todo" />
+          </td>
+          <td>
+            <button onclick="addTodo()">submit</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <script>
+      const status = ["on-progress", "done"];
+      const todoItems = [
+        { task: "coding", status: status[0] },
+        { task: "reading", status: status[0] },
+        { task: "writing", status: status[0] },
+      ];
+
+      const tbody = document.getElementById("todo-list");
+
+      function todoLength() {
+        const spanTodoLength = document.getElementById("todo-length");
+        spanTodoLength.innerText = todoItems.length;
+      }
+
+        // from AI :v
+      function changeStatus(button) {
+        const index = Array.from(
+          button.parentNode.parentNode.parentNode.children
+        ).indexOf(button.parentNode.parentNode);
+        if (todoItems[index].status === status[0]) {
+          todoItems[index].status = status[1];
+        } else {
+          todoItems[index].status = status[0];
+        }
+        loadData(); // Perbarui tampilan setelah mengubah status
+        todoLength(); // Perbarui jumlah item
+      }
+
+      function loadData() {
+        // Membersihkan isi <tbody> agar tidak terduplikasi
+        tbody.innerHTML = "";
+
+        todoItems.forEach((item) => {
+          const createTr = document.createElement("tr");
+          const createTd = document.createElement("td");
+
+          createTd.innerText = item.task;
+
+          const createTdBtn = document.createElement("button");
+          createTdBtn.innerText = item.status;
+
+          // Simpan status tombol di properti
+          //   createTdBtn.status = item.status;
+
+          // menambahkan event listener click ke button
+          createTdBtn.addEventListener("click", () => {
+            changeStatus(createTdBtn);
+          });
+
+          createTd.appendChild(createTdBtn);
+
+          createTr.appendChild(createTd);
+          createTr.appendChild(createTdBtn);
+          tbody.appendChild(createTr);
+        });
+      }
+
+      function addTodo() {
+        let todoInput = document.getElementById("todo-input").value;
+        // console.log(todoInput.value);
+
+        if (todoInput !== "") {
+          todoItems.push({ task: todoInput, status: status[0] });
+          loadData();
+          // Membersihkan input setelah menekan tombol
+          document.getElementById("todo-input").value = "";
+        } else {
+          alert("Please enter a task");
+        }
+      }
+
+      window.onload = function () {
+        loadData();
+        todoLength();
+      };
+    </script>
+  </body>
+</html>

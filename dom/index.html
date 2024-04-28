@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>Hello  </h1>
+    <h2 id="greeting">Hello World 2</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae itaque
+      nisi quia hic. Eaque corporis molestiae aperiam adipisci ipsa odio?
+    </p>
+
+        <span>name</span>
+      <input id="name" type="text" />
+      <button onclick="changeH1()">Submit</button>
+   
+
+    <!-- <ul id="user-list"></ul> -->
+
+    <!-- <button onclick="changeGreeting()">Change greeting</button>
+    <button onclick="loadUsers()">Load data</button> -->
+
+    <script>
+      const users = [
+        "Bagas",
+        "Agil",
+        "Doni",
+        "Farhan",
+        "Hafiz",
+        "Iqbal",
+        "Joko",
+      ];
+
+      function changeGreeting() {
+        const message = "halo cuy!";
+        document.getElementById("greeting").innerText = message;
+        alert("greeting changed");
+      }
+
+      function loadUsers() {
+        const listSelector = document.getElementById("user-list");
+        // reset list
+        listSelector.innerHTML = "";
+
+        // loop
+        users.forEach((user) => {
+          // create child tag(li)
+          const newListItem = document.createElement("li");
+
+          // memasukkan list user ke new list item
+          newListItem.innerText = user;
+
+          // nambahain sesuatu ke child
+          listSelector.appendChild(newListItem);
+        });
+      }
+    
+      function changeH1() {
+        const nameInput = document.getElementById("name");
+        const h1 = document.querySelector("h1");
+
+        const name = nameInput.value;
+
+        // h1.innerText = `Hello ${name}`
+        h1.innerText += ` ${name}`
+      }
+    </script>
+  </body>
+</html>
