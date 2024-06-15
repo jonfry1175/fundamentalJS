@@ -16,7 +16,8 @@ class CarFull {
     }
 
     getPajak() {
-        return this.harga * 0.025
+        const pajak = this.harga * 0.025
+        return pajak
     }
 }
 
@@ -27,4 +28,4 @@ class SuratKendaraan extends CarFull {
 }
 
 const test = new SuratKendaraan("Toyota", 2016, 1500, 300000000)
-console.log(test)
+console.log(test.getPajak())

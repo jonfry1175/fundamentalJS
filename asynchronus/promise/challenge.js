@@ -38,8 +38,12 @@ function hitungTotal(produk) {
 
 hitungTotal([
     // { nama: 'Sepatu', harga: 1500000, jumlah: 2 },
-    // {nama:"Kemeja",harga:80,jumlah:2},{nama:"Selendang",harga:20,jumlah:13},{nama:"Jeans",harga:150,jumlah:12},
-    {nama:"Kemeja",harga:80,jumlah:2},{nama:"Selendang",harga:20,jumlah:13},{nama:"Jeans",harga:150}
+    {nama:"Kemeja",harga:80,jumlah:2},
+    {nama:"Selendang",harga:20,jumlah:13},
+    {nama:"Jeans",harga:150,jumlah:12},
+    // {nama:"Kemeja",harga:80,jumlah:2},
+    {nama:"Selendang",harga:20,jumlah:13},
+    {nama:"Jeans",harga:150}
 ])
     .then((result) => {
         console.log(result)
